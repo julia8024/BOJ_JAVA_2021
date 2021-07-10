@@ -4,6 +4,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
+		// 세자리 수 * 세자리 수 곱셈
+		
 		Scanner sc = new Scanner(System.in);
 		int a = sc.nextInt();
 		int b = sc.nextInt();
