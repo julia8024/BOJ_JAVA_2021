@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		int a;
+		int b;
+		int cnt = 0;
+		int result = N;
+		do {
+			// result의 십의 자리수 a, 일의 자리수 b
+			if (result < 10) {
+				a = 0;
+				b = result;
+			} else {
+				a = result / 10;
+				b = result - a*10;
+			}
+			
+			int val = b;				// 새로운 수의 십의 자리수
+			int sum = a + b;			// 기존 수의 각 자리수 합
+			result = b * 10 + (sum - sum / 10 * 10);		// 새로운 수의 일의 자리수
+			cnt++;
+		} while(result != N);
+		
+		System.out.println(cnt);
+	}
+}
