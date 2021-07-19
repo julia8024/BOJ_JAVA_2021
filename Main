@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		hansu(N);
+	}
+	
+	public static void hansu(int N) {
+		
+		// 1~99 는 모두 등차수열
+		int result = 0;		// 한수의 개수
+		
+		if (N < 100) {
+			result = N;
+		} else {
+			result = 99;
+			
+			// 1000은 등차수열이 아니면서, 1000보다 큰 수는 입력받지 X
+			if (N == 1000) {
+				N = 999;
+			}
+			
+			for (int i = 100; i <= N; i++) {
+				int N100 = i / 100;
+				int N10 = (i / 10) % 10;
+				int N1 = i % 10;
+				
+				if ((N100 - N10) == (N10 - N1)) {
+					result++;
+				}
+			}	
+		}
+		
+		System.out.println(result);
+	}
+}
