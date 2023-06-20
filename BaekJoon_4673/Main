@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		int MAX = 10001;
+		boolean[] check = new boolean[MAX];	// 1 ~ 10000
+		
+		for (int i = 1; i < 10001; i++) {
+			int n = d(i);
+			
+			if (n < MAX) {
+				check[n] = true;
+			}
+		}
+		
+		for (int i = 1; i < MAX; i++) {
+			if (!check[i]) {
+				System.out.println(i);
+			}
+		}
+	}
+	
+	public static int d(int n) {
+		int sum = n;
+		
+		while (n != 0) {
+			sum = sum + (n % 10);		// 첫 째 자리수
+			n = n / 10;
+		}
+		
+		return sum;
+	}
+	
+}
