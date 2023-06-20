@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		int C = sc.nextInt();
+		
+		for (int i = 0; i < C; i++) {
+			
+			int[] array = new int[sc.nextInt()];
+			int sum = 0;
+			for (int j = 0; j < array.length; j++) {
+				array[j] = sc.nextInt();
+				sum += array[j];
+			}
+			double avg = (double) sum / array.length;
+			
+			int cnt = 0;
+			for (int j = 0; j < array.length; j++) {
+				if (array[j] > avg) {
+					cnt++;
+				}
+			}
+			
+			double percentage = (double) cnt / array.length * 100;
+			System.out.printf("%.3f%%\n", percentage);
+		}
+	}
+}
