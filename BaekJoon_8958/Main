@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt();
+		
+		for (int i = 0; i < T; i++) {
+			
+			String s = sc.next();
+			String ox = "O";
+			int cnt = 0;
+			int result = 0;
+			
+			if (s.charAt(0) == ox.charAt(0)) {
+				cnt++;
+				result += cnt;
+			}
+			
+			int j = 1;
+			while (j < s.length()) {
+				if (s.charAt(j) == ox.charAt(0)) {
+					if (s.charAt(j) == s.charAt(j-1)) {
+						cnt++;
+						result += cnt;
+					} else {
+						cnt++;
+						result += cnt;
+					}
+				} else {
+					cnt = 0;
+				}
+				j++;
+			}
+			System.out.println(result);
+		}
+	}
+}
